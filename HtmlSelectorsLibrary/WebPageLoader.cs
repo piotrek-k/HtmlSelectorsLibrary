@@ -13,15 +13,15 @@ namespace HtmlSelectorsLibrary
         /// <summary>
         /// Zwraca HTML strony z pliku
         /// </summary>
-        public string LoadHTMLFileFromResource(string pathToFile)
+        public static string LoadHTMLFileFromResource(string pathToFile)
         {
-            return System.IO.File.ReadAllText(@"C:\Users\Public\TestFolder\WriteText.txt");
+            return System.IO.File.ReadAllText(pathToFile);
         }
 
         /// <summary>
         /// Zwraca html strony o podanym adresie
         /// </summary>
-        public async Task<string> LoadHTMLFromWebsite(string webPageURL)
+        public static async Task<string> LoadHTMLFromWebsite(string webPageURL)
         {
             // ... Use HttpClient.
             using (HttpClient client = new HttpClient())
@@ -31,8 +31,8 @@ namespace HtmlSelectorsLibrary
                 // ... Read the string.
                 var htmlData = await content.ReadAsStringAsync();
 
-                var hap = new HtmlDocument();
-                hap.LoadHtml(htmlData);
+                //var hap = new HtmlDocument();
+                //hap.LoadHtml(htmlData);
                 //currentHTMLDocument = hap.DocumentNode;
 
                 return htmlData;
